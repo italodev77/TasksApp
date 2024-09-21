@@ -1,4 +1,5 @@
-﻿using Application.UserCQ.Commands;
+﻿using Application.Response;
+using Application.UserCQ.Commands;
 using Application.UserCQ.ViewModels;
 using Domain.Entity;
 using Infra.Persistence;
@@ -11,10 +12,10 @@ using System.Threading.Tasks;
 
 namespace Application.UserCQ.Handlers
 {
-    public class CreateUserCommandHandler(TasksDbContext context) : IRequestHandler<CreateUserCommand, UserInfoViewModel>
+    public class CreateUserCommandHandler(TasksDbContext context) : IRequestHandler<CreateUserCommand, ResponseBase<UserInfoViewModel?>>
     {
         private readonly TasksDbContext _tasksDbContext = context;
-        public async Task<UserInfoViewModel> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+        public async Task<ResponseBase<UserInfoViewModel>> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
             var user = new User()
             {
@@ -30,18 +31,20 @@ namespace Application.UserCQ.Handlers
            _tasksDbContext.Users.Add(user); 
            _tasksDbContext.SaveChanges();
 
-            var userInfo = new UserInfoViewModel()
+            return new ResponseBase<UserInfoViewModel>
             {
-                Name = user.Name,
-                Surname = user.Surname,
-                Email = user.Email,
-                Username = user.Username,
-                RefreshnToken = user.RefreshToken,
-                RefreshTokenExpirationTime = user.RefreshTokenExpirationTime,
-                TokenJWT = Guid.NewGuid().ToString(),
+                ResponseInfo = null,
+                Value = new()
+                {
+                    Name = user.Name,
+                    Surname = user.Surname,
+                    Email = user.Email,
+                    Username = user.Username,
+                    RefreshnToken = user.RefreshToken,
+                    RefreshTokenExpirationTime = user.RefreshTokenExpirationTime,
+                    TokenJWT = Guid.NewGuid().ToString(),
+                }
             };
-            return userInfo;
-
 
         }
     }

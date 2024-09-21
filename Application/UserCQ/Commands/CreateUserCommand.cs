@@ -1,4 +1,5 @@
-﻿using Application.UserCQ.ViewModels;
+﻿using Application.Response;
+using Application.UserCQ.ViewModels;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Application.UserCQ.Commands
 {
-    public class CreateUserCommand: IRequest<UserInfoViewModel>
+    public class CreateUserCommand: IRequest<ResponseBase<UserInfoViewModel?>>
     {
         public string? Name { get; set; }
         public string? Surname { get; set; }
