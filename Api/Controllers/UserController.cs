@@ -12,6 +12,7 @@ namespace Api.Controllers
     public class UserController(IMediator mediator) : ControllerBase
     {
         private readonly IMediator _mediator = mediator;
+        [HttpPost("Create-User")]
         public async Task<ActionResult<UserInfoViewModel>> CreateUser( CreateUserCommand comand)
         {
             var result = await _mediator.Send(comand);

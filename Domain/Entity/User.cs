@@ -15,21 +15,21 @@ namespace Domain.Entity
 
         [Required]
         [StringLength(50, MinimumLength = 3)]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [Required]
         [StringLength(50, MinimumLength = 3)]
-        public string Surname { get; set; }
+        public string? Surname { get; set; }
         [Required]
         [EmailAddress]
-        public string Email { get; set; }
+        public string? Email { get; set; }
         [Required]
-        public string PasswordHash { get; set; }
+        public string? PasswordHash { get; set; }
         [Required]
-        public string Username { get; set; }
-        public ICollection<Workspace> Workspace { get; set; }
-        public string RefreshToken { get; set; }
-        public string RefreshTokenExpirationTIme { get; set; }
+        public string? Username { get; set; }
+        public ICollection<Workspace>? Workspace { get; set; }
+        public string? RefreshToken { get; set; }
+        public DateTime? RefreshTokenExpirationTime { get; set; }
 
     }
 }
