@@ -21,4 +21,4 @@ O projeto segue a arquitetura limpa (Clean Architecture) e implementação do pa
 - **Application**: Contém os casos de uso, serviços e comandos.
 - **Infrastructure**: Implementações específicas de infraestrutura, como acesso a banco de dados.
 - **API**: Camada que expõe os endpoints da aplicação.
-- **CQRS**: Utilizado para melhorar a questão das ações e da leitura das informações. Inclusive implentado os handlers para lidar com a lógica de um determinado comand.
+- **CQRS**: Utilizado para melhorar a questão das ações e da leitura das informações. Inclusive implentado os handlers para lidar com a lógica de um determinado command.
