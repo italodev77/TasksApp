@@ -1,7 +1,6 @@
 # TasksApp Backend
 
-Este é o backend do projeto **TasksApp**, uma aplicação para gerenciamento de tarefas. Este projeto foi desenvolvido em C# utilizando o ASP.NET, aplicando conceitos de Clean Architecture e CQRS pois é o que estou estudando
-e buscando aplicar para aprender ainda mais.
+Este é o backend do projeto **TasksApp**, uma aplicação para gerenciamento de tarefas. Este projeto foi desenvolvido em C# utilizando o ASP.NET, aplicando conceitos de Clean Architecture e CQRS, para organizar melhor o código e maior entendimento da estrutura.
 
 #Observação: o projeto ainda está em andamento...
 
