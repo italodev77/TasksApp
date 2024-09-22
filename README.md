@@ -12,7 +12,7 @@ e buscando aplicar para aprender ainda mais.
 - **Entity Framework Core**
 - **MediatR**
 - **Fluent Validation**
-- **Sql Server
+- **Sql Server**
 
 ## Estrutura do Projeto
 
