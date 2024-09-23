@@ -16,7 +16,8 @@ namespace Application.Mappings
         {
             CreateMap<CreateUserCommand, User>()
                 .ForMember(x => x.RefreshToken, x => x.MapFrom(x => GenerateGuid()))
-                .ForMember(x => x.RefreshTokenExpirationTime, x => x.MapFrom(x => AddFiveDays()));
+                .ForMember(x => x.RefreshTokenExpirationTime, x => x.MapFrom(x => AddFiveDays()))
+                .ForMember(x => x.PasswordHash, x => x.MapFrom(x => x.Password));
             CreateMap<User, UserInfoViewModel>()
                 .ForMember(x => x.TokenJWT, x => x.MapFrom(x => GenerateGuid()));
         }
