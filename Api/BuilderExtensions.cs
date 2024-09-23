@@ -6,6 +6,7 @@ using FluentValidation.AspNetCore;
 using Infra.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 namespace Api
 {
@@ -31,6 +32,8 @@ namespace Api
                         Url = new Uri("https://example.com/licenca")
                     } 
                 });
+                var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
             });
         }
         public static void AddServices(this WebApplicationBuilder builder)
