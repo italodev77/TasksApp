@@ -1,4 +1,5 @@
-﻿using Application.UserCQ.Commands;
+﻿using Application.Mappings;
+using Application.UserCQ.Commands;
 using Application.UserCQ.Validators;
 using FluentValidation;
 using FluentValidation.AspNetCore;
@@ -29,6 +30,10 @@ namespace Api
             builder.Services.AddFluentValidationAutoValidation();
 
 
+        }
+        public static void AddMapper(this WebApplicationBuilder builder)
+        {
+            builder.Services.AddAutoMapper(typeof(ProfileMappings).Assembly);
         }
     }
 }
